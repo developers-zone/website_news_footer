@@ -34,7 +34,7 @@
             'views/website_templates.xml'
     ],
     'images': ['static/src/img/banner.jpg'],
-    'live_test_url': 'modules/9.0/website_news_footer#desc',
+    'live_test_url': 'https://apps.openerp.com/apps/modules/9.0/website_news_footer#desc',
     'price': 19.99,
     'currency' : "EUR",
     'installable': True,
