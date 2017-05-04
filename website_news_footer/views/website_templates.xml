@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<template id="assets_custom" inherit_id="web.assets_common" name="Website assets">
+			<xpath expr="." position="inside">
+				<meta name="description" content="Odoo Developers are a group, those focused on solutions for day to day requirments. We innovates the solutions as apps in openerp." />
+    			<meta name="keywords" content="Developers Zone, Odoo Applications, ERP, Odoo Developers, Web Services, ERP Services India" />
+				<link  rel="shortcut icon" href="/website_news_footer/static/src/img/ico/favicon.ico" type="image/x-icon" /> 
+				<link href="/website_news_footer/static/src/css/style.css" rel="stylesheet" /> 
+				<link href="/website_news_footer/static/src/css/custom.css" rel="stylesheet" /> 
+			</xpath>
+		</template>
+		
+		<template id="footer_custom" inherit_id="website.layout_footer_copyright" name="Footer Copyright Custom">
+		    <xpath expr="//div[@id='footer']" position="replace">
+		            <footer>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="widget">
+										<h5 class="widgetheading">Connect with us</h5>
+										<address>
+										<strong><span t-field="res_company.name" itemprop="name">Company name</span></strong><br/>
+										</address>
+										<p>
+											<i class="icon-phone"></i> <span t-field="res_company.phone" itemprop="phone" /> <br/>
+											<i class="icon-envelope-alt"></i> <span t-field="res_company.email" itemprop="email" />
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="widget">
+										<h5 class="widgetheading">Quick reaches </h5>
+										<ul class="link-list">
+											<li><a href="#">Our latest blogs</a></li>
+											<li><a href="#">Our products &amp; services</a></li>
+											<li><a href="#">Our visions &amp; missions</a></li>
+											<li><a href="#">Career</a></li>
+											<li><a href="#">Reach us</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-5">
+									<div class="widget">
+										<h5 class="widgetheading">Our recent news</h5>
+										<ul class="link-list">
+											<t t-if="not news_feed">
+												<li>» No news so far...</li>
+											</t>
+											<t t-if="news_feed" t-foreach="news_feed" t-as="latest_news_feed">
+												<li><a t-att-href="'/news/'+str(latest_news_feed.id)">» <span t-field="latest_news_feed.name"/></a></li>
+											</t>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="sub-footer">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="copyright">
+											<p>
+												<span>&amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>, 2017. All right reserved. </span>
+											</p>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<ul class="social-network">
+											<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+											<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+											<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+				</footer>
+		    </xpath>
+		</template>
+		
+		<template id="news_feed" name="News Feed">
+		   <t t-call="website.layout"> 
+				<div style="padding: 10px;margin:0px 72px 50px 72px;"> 
+					<h3 class="page-header">News Feeds</h3>
+					<h4>Subject : <span t-esc="news_detailed.name"/></h4><br/>
+					<span><h4>Detailed Note : </h4><span t-esc="news_detailed.note"/></span><br/>					
+					<h5 style="font-family: Trebuchet MS;text-align: right;">Posted By <span t-esc="news_detailed.user_id.name"/> on <span t-esc="news_detailed.date_order"/></h5>
+				</div>
+		   </t>
+		</template>
+     </data>
+</openerp>

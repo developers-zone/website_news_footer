@@ -1,0 +1,11 @@
+
+@media (max-width: 767px) {
+	#about, .testimonial_clientsech123
+	{
+		display: none !important;
+	}
+}
+
+footer ul.link-list li a:hover {
+	color: #ffffff !important;
+}
