@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="menu_news_feed_root" name="News Feed" sequence="30"/>
+        <menuitem name="News Feeds" id="news_feeds" parent="menu_news_feed_root" sequence="99"/>
+		
+		<record id="view_news_feed_tree" model="ir.ui.view">
+            <field name="name">news.feed.tree</field>
+            <field name="model">news.feed</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Orders" >
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="user_id"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_news_feed_form" model="ir.ui.view">
+            <field name="name">news.feed.form</field>
+            <field name="model">news.feed</field>
+            <field name="arch" type="xml">
+                <form string="Sales Order">
+                <group>
+                  	<field name="name"/>
+                    <field name="date_order"/>
+                    <field name="user_id"/>
+                    <field name="note"/>
+                 </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_news_feed" model="ir.actions.act_window">
+            <field name="name">News Feed</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">news.feed</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a NewsFeed to view in website.
+                </p>
+            </field>
+        </record>
+        
+<!--        <menuitem id="base.menu_newsfeeds" name="News feeds" parent="base.menu_news_feed" sequence="11"/> -->
+        
+        <menuitem action="action_news_feed"
+            id="create_menu_news_feed" parent="website_news_footer.news_feeds"
+            sequence="100"/>
+        
+	</data>
+</openerp>
