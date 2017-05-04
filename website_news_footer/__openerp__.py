@@ -34,7 +34,7 @@
             'views/website_templates.xml'
     ],
     'images': ['static/src/img/banner.jpg'],
-    'live_test_url': 'https://ttttt.com/',
+    'live_test_url': '/static/description/',
     'price': 19.99,
     'currency' : "EUR",
     'installable': True,
